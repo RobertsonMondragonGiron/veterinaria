@@ -1,4 +1,4 @@
-package com.vet.vetapp.model;
+package com.sistemadegestiondecentroveterinario.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
