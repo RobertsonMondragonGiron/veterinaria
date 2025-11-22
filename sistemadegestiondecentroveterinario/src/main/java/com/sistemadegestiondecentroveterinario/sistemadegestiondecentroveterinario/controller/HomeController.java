@@ -1,11 +1,11 @@
-package com.sistemadegestiondecentroveterinario.controller;
+package com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.controller;
 
-import com.sistemadegestiondecentroveterinario.service.MascotaService;
-import com.sistemadegestiondecentroveterinario.service.PropietarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.service.MascotaService;
+import com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.service.PropietarioService;
 
 
 @Controller

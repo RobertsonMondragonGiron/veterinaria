@@ -1,7 +1,7 @@
-package com.sistemadegestiondecentroveterinario.controller;
+package com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.controller;
 
-import com.sistemadegestiondecentroveterinario.model.Mascota;
-import com.sistemadegestiondecentroveterinario.service.MascotaService;
+import com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.model.Mascota;
+import com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.service.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
