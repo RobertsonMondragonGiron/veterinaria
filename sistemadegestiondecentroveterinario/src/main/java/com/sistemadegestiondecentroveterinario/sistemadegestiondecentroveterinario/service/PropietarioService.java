@@ -1,7 +1,7 @@
-package com.sistemadegestiondecentroveterinario.service;
+package com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.service;
 
-import com.sistemadegestiondecentroveterinario.model.Propietario;
-import com.sistemadegestiondecentroveterinario.repository.PropietarioRepository;
+import com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.model.Propietario;
+import com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.repository.PropietarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
