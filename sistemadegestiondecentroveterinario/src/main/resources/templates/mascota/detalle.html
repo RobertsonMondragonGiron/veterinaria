@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Mascota - Sistema Veterinario</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    .page-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px 0;
+        margin-bottom: 30px;
+    }
+    .info-label {
+        font-weight: 600;
+        color: #6c757d;
+    }
+    .mascot-icon {
+        font-size: 5rem;
+        color: #667eea;
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <i class="bi bi-heart-pulse"></i> Veterinaria
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/mascotas">Mascotas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/propietarios">Propietarios</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <h1 class="mb-0">
+      <i class="bi bi-file-text"></i> Detalle de Mascota
+    </h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <i class="bi bi-emoji-smile mascot-icon"></i>
+            <h2 class="mt-3" th:text="${mascota.nombre}">Nombre de la Mascota</h2>
+          </div>
+
+          <hr>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <p class="info-label mb-1">ID:</p>
+            </div>
+            <div class="col-md-8">
+              <p th:text="${mascota.id}">1</p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <p class="info-label mb-1">Nombre:</p>
+            </div>
+            <div class="col-md-8">
+              <p th:text="${mascota.nombre}">Max</p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <p class="info-label mb-1">Especie:</p>
+            </div>
+            <div class="col-md-8">
+              <p>
+                <span class="badge bg-info" th:text="${mascota.especie}">Perro</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <p class="info-label mb-1">Edad:</p>
+            </div>
+            <div class="col-md-8">
+              <p>
+                <span th:text="${mascota.edad}">3</span> años
+              </p>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <p class="info-label mb-1">Propietario:</p>
+            </div>
+            <div class="col-md-8">
+              <p>
+                <strong th:text="${mascota.propietario?.nombre}">Juan Pérez</strong><br>
+                <small class="text-muted">
+                  Documento: <span th:text="${mascota.propietario?.documento}">12345678</span><br>
+                  Teléfono: <span th:text="${mascota.propietario?.telefono}">555-1234</span>
+                </small>
+              </p>
+            </div>
+          </div>
+
+          <hr>
+
+          <!-- Botones de Acción -->
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/mascotas" class="btn btn-secondary">
+              <i class="bi bi-arrow-left"></i> Volver a la Lista
+            </a>
+            <a th:href="@{/mascotas/editar/{id}(id=${mascota.id})}" class="btn btn-warning">
+              <i class="bi bi-pencil"></i> Editar
+            </a>
+            <a th:href="@{/mascotas/eliminar/{id}(id=${mascota.id})}"
+               class="btn btn-danger"
+               onclick="return confirm('¿Estás seguro de eliminar esta mascota?')">
+              <i class="bi bi-trash"></i> Eliminar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <p class="mb-0">&copy; 2025 Sistema de Gestión Veterinaria</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

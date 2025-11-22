@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Veterinaria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            transition: transform 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="bi bi-heart-pulse"></i> Veterinaria
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mascotas">Mascotas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/propietarios">Propietarios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3">Sistema de Gestión Veterinaria</h1>
+        <p class="lead">Administra las mascotas y propietarios de tu centro veterinario</p>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="container">
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="card stat-card border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-emoji-smile feature-icon text-primary"></i>
+                    <h2 class="display-4 fw-bold" th:text="${totalMascotas}">0</h2>
+                    <p class="text-muted mb-0">Mascotas Registradas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card stat-card border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-people feature-icon text-success"></i>
+                    <h2 class="display-4 fw-bold" th:text="${totalPropietarios}">0</h2>
+                    <p class="text-muted mb-0">Propietarios Registrados</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row g-4 mb-5">
+        <div class="col-12">
+            <h3 class="mb-4">Acciones Rápidas</h3>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-plus-circle feature-icon text-primary"></i>
+                    <h5 class="card-title">Nueva Mascota</h5>
+                    <p class="card-text text-muted">Registra una nueva mascota en el sistema</p>
+                    <a href="/mascotas/nuevo" class="btn btn-primary">Registrar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-list-ul feature-icon text-info"></i>
+                    <h5 class="card-title">Ver Mascotas</h5>
+                    <p class="card-text text-muted">Consulta todas las mascotas registradas</p>
+                    <a href="/mascotas" class="btn btn-info text-white">Ver Lista</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-person-plus feature-icon text-success"></i>
+                    <h5 class="card-title">Nuevo Propietario</h5>
+                    <p class="card-text text-muted">Registra un nuevo propietario</p>
+                    <a href="/propietarios/nuevo" class="btn btn-success">Registrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 Sistema de Gestión Veterinaria. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
