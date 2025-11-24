@@ -10,6 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
+
+
 @Controller
 @RequestMapping("/mascotas")
 public class MascotaController {
@@ -40,13 +42,12 @@ public class MascotaController {
     public String guardarMascota(@Valid @ModelAttribute("mascota") Mascota mascota,
                                  BindingResult result,
                                  Model model) {
-        // Validar si hay errores
+
         if (result.hasErrors()) {
             model.addAttribute("propietarios", propietarioService.findAll());
             return "mascota/form";
         }
 
-        // Guardar la mascota
         mascotaService.save(mascota);
         return "redirect:/mascotas?success";
     }

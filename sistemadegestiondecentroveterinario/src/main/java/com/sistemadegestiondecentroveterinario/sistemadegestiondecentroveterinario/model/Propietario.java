@@ -1,5 +1,6 @@
 package com.sistemadegestiondecentroveterinario.sistemadegestiondecentroveterinario.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class Propietario {
     private String telefono;
 
     @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"propietario"}) // Evita la referencia circular
     private List<Mascota> mascotas = new ArrayList<>();
 
     // Constructor vacío
